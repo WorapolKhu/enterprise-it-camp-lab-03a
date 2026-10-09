@@ -1,16 +1,39 @@
-# React + Vite
+# Smart Todo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a small, responsive task manager built with React and Vite. Add tasks with a title, priority, and due date; mark tasks complete or delete them.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Requires Node.js and npm.
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Open the local URL printed by Vite in your browser.
 
-## Expanding the ESLint configuration
+## Using Smart Todo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Enter a title and due date, choose a priority, then select **Add task**.
+- Use **Toggle** to switch a task between incomplete and completed.
+- Use **Delete** to remove a task.
+
+The app starts with two example tasks. Tasks are kept in React state and reset to those examples when the page is reloaded.
+
+## TodoItem Checklist
+
+1. **Props:** `TodoItem` renders `title`, `priority`, `dueDate`, and `completed`. It also receives `id` for task actions.
+2. **Callbacks:** `App` passes `id={task.id}`. Toggle calls `onToggle(id)` and Delete calls `onDelete(id)`, forwarding that task's ID.
+3. **Buttons:** Both actions use real `<button type="button">` elements.
+4. **Dependencies:** `TodoItem` imports only its local stylesheet; it uses no additional libraries.
+5. **Readability and responsiveness:** Descriptive class names organize the markup and styles. The item wraps on narrow screens, and its actions expand to full width below 480px.
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server. |
+| `npm run lint` | Run ESLint. |
+| `npm run build` | Create a production build in `dist/`. |
+| `npm run preview` | Preview the production build locally. |
